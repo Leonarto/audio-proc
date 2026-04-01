@@ -1,0 +1,17 @@
+node_modules
+.svelte-kit
+build
+dist
+release
+backend/.venv
+.venv
+__pycache__
+*.pyc
+*.pyo
+*.DS_Store
+*.db
+*.sqlite
+*.sqlite3
+*.log
+coverage
+playwright-report

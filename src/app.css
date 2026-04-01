@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 222 24% 8%;
+  --foreground: 36 33% 96%;
+  --muted: 218 17% 17%;
+  --muted-foreground: 216 14% 70%;
+  --popover: 220 19% 11%;
+  --popover-foreground: 36 33% 96%;
+  --card: 220 18% 12%;
+  --card-foreground: 36 33% 96%;
+  --border: 216 13% 24%;
+  --input: 216 13% 24%;
+  --primary: 28 83% 58%;
+  --primary-foreground: 222 40% 8%;
+  --secondary: 219 18% 16%;
+  --secondary-foreground: 36 33% 96%;
+  --accent: 168 46% 45%;
+  --accent-foreground: 222 40% 8%;
+  --destructive: 0 72% 57%;
+  --destructive-foreground: 0 0% 100%;
+  --ring: 28 83% 58%;
+  --radius: 1rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply min-h-screen bg-background text-foreground antialiased;
+    font-family:
+      "Avenir Next",
+      "Segoe UI Variable",
+      "Segoe UI",
+      "Helvetica Neue",
+      sans-serif;
+    background:
+      radial-gradient(circle at 12% 12%, rgba(242, 147, 74, 0.18), transparent 24%),
+      radial-gradient(circle at 88% 10%, rgba(34, 197, 164, 0.16), transparent 22%),
+      radial-gradient(circle at 50% 110%, rgba(15, 23, 42, 0.12), transparent 32%),
+      linear-gradient(180deg, rgba(10, 14, 23, 0.98), rgba(10, 14, 23, 1));
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family:
+      "Iowan Old Style",
+      "Palatino Linotype",
+      "Book Antiqua",
+      "URW Palladio L",
+      serif;
+    letter-spacing: -0.02em;
+  }
+
+  code,
+  pre {
+    font-family:
+      "IBM Plex Mono",
+      "SFMono-Regular",
+      "Cascadia Mono",
+      monospace;
+  }
+}
+
+@layer components {
+  .panel-grid {
+    position: relative;
+  }
+
+  .data-label {
+    @apply text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-muted-foreground;
+  }
+
+  .studio-shell {
+    @apply relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-card/80 shadow-2xl backdrop-blur-xl;
+    box-shadow:
+      0 24px 80px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  }
+
+  .studio-shell::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(140deg, rgba(255, 255, 255, 0.04), transparent 18%, transparent 82%, rgba(255, 255, 255, 0.03)),
+      radial-gradient(circle at top, rgba(242, 147, 74, 0.08), transparent 32%);
+  }
+
+  .grain {
+    position: relative;
+  }
+
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.1;
+    mix-blend-mode: soft-light;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+      linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: auto, 18px 18px, 18px 18px;
+  }
+}

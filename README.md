@@ -5,8 +5,7 @@ Local-first desktop audio transcription management for macOS development and Win
 ## Architecture
 
 - `SvelteKit + TypeScript` drives the UI.
-- `Capacitor` configuration is included so the web layer stays Capacitor-ready.
-- `Electron` is the pragmatic desktop host for this MVP because it gives reliable macOS/Windows folder picking and Python process launching today.
+- `Electron` is the desktop host for this MVP and handles native folder picking plus Python process launching on macOS and Windows.
 - `Python + FastAPI` runs locally on `127.0.0.1:8765` for folder scanning, audio metadata extraction, SQLite persistence, transcript search, and transcription orchestration.
 - `SQLite` persists file metadata, transcripts, transcript segments, and app settings.
 - The frontend talks to Python over JSON HTTP on `localhost`, which keeps the bridge cross-platform and easy to swap later.
@@ -56,7 +55,6 @@ audio-proc/
       stores/
       utils/
     routes/
-  capacitor.config.ts
   package.json
   README.md
 ```
